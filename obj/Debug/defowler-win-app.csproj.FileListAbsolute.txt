@@ -1,0 +1,9 @@
+C:\Users\defowler2005\source\repos\defowler-win-app\bin\Debug\defowler-win-app.exe.config
+C:\Users\defowler2005\source\repos\defowler-win-app\bin\Debug\defowler-win-app.exe
+C:\Users\defowler2005\source\repos\defowler-win-app\bin\Debug\defowler-win-app.pdb
+C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.csproj.AssemblyReference.cache
+C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler_win_app.Properties.Resources.resources
+C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.csproj.GenerateResource.cache
+C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.csproj.CoreCompileInputs.cache
+C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.exe
+C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.pdb
