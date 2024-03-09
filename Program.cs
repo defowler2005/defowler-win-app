@@ -15,7 +15,6 @@ namespace defowler2005_app
             TabControl tabControl = new TabControl();
             tabControl.TabPages.Add(new TabPage("Tab 1"));
             tabControl.TabPages.Add(new TabPage("Tab 2"));
-            tabControl.TabPages.Add(new TabPage("Tab 3"));
 
             tabControl.TabPages[0].Controls.Add(new Label
             {
@@ -46,14 +45,6 @@ namespace defowler2005_app
                 Size = new System.Drawing.Size(300, 200),
                 Icon = new Icon("./favicon.ico"),
                 BackgroundImage = Image.FromFile("./background.png")
-            };
-
-
-            Label helloLabel = new Label
-            {
-                Text = "Hello, World!",
-                AutoSize = true,
-                Location = new System.Drawing.Point(50, 50)
             };
 
             form.Controls.Add(tabControl);
