@@ -1,35 +1,34 @@
-﻿using System.Reflection;
-using System.Resources;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: ComVisible(true)] // Exposes the types in this assembly to COM components.
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+[assembly: AssemblyTitle("defowler2005's beginer app.")]
+[assembly: AssemblyDescription("defowler2005's beginer app.")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("defowler2005, farmhouse_gold6432")]
+[assembly: AssemblyProduct("defowler2005's beginer app.")]
+[assembly: AssemblyCopyright("Copyright © 2024 defowler2005, farmhouse_gold6432")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
 
-[assembly: Guid("00749d06-743b-4fcd-a3e3-36c5db9af897")] // Specifies the GUID associated with the assembly.
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(true)]
 
-[assembly: AssemblyInformationalVersion("0.0.0.1")] // Specifies the informational version of the assembly.
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("41e77f09-8c21-45fc-94e0-24c94ad8cd89")]
 
-[assembly: AssemblyCompany("Your Company Name")] // Specifies the company that produced the assembly.
-
-[assembly: AssemblyProduct("defowler-win-app")] // Specifies the name of the product.
-
-[assembly: AssemblyCopyright("Copyright © defowler 2024")] // Specifies the copyright information.
-
-[assembly: AssemblyTrademark("You are free to decompile this application")] // Specifies any trademarks associated with the assembly.
-
-[assembly: AssemblyVersion("0.0.0.0")] // Specifies the version of the assembly being attributed.
-
-[assembly: AssemblyFileVersion("0.0.0.0")] // Specifies the Win32 file version resource.
-
-[assembly: AssemblyTitle("defowler-win-app")] // Specifies the title of the assembly.
-
-[assembly: AssemblyDescription("A test file for defowler2005")] // Specifies the description of the assembly.
-
-[assembly: AssemblyConfiguration("")] // Specifies the build configuration.
-
-[assembly: AssemblyCulture("")] // Specifies the culture supported by the assembly.
-
-[assembly: AssemblyKeyFile("")] // Specifies the file containing the key pair.
-
-[assembly: AssemblyDelaySign(false)] // Specifies whether the assembly is to be delay-signed.
-
-[assembly: NeutralResourcesLanguage("en-AU")] // Specifies the culture for the resources in the assembly.
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+[assembly: AssemblyVersion("0.0.0.0")]
+[assembly: AssemblyFileVersion("0.0.0.0")]
+[assembly: NeutralResourcesLanguage("en-AU")]

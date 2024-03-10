@@ -1,55 +1,153 @@
-﻿using System;
+﻿using DiscordRPC;
+using DiscordRPC.Logging;
+using System;
 using System.Drawing;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace defowler2005_app
+namespace defowler_app
 {
-    static class Program
+    internal class Program
     {
         [STAThread]
-        static void Main()
+        public static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            string[] args = Environment.GetCommandLineArgs();
-
-            if (args.Length > 1)
+            if (!CheckDllsExist())
             {
-                foreach (string arg in args)
-                {
-                    if (arg.StartsWith("/test="))
-                    {
-                        string testValue = arg.Substring("/test=".Length);
-
-                        MessageBox.Show($"Test value: {testValue}", "Test Argument");
-                    }
-                }
+                ShowConsoleWindow();
+                Console.WriteLine("One or more required DLL files are missing:");
+                Console.WriteLine("  - DiscordRPC.dll: https://www.dll-files.com/discord-rpc.dll.html");
+                Console.WriteLine("  - Newtonsoft.Json.dll: https://www.dll-files.com/newtonsoft.json.dll.html");
+                Console.WriteLine("Please download the missing DLL files and place them in the same directory as the application.");
+                Console.WriteLine("Press any key to exit.");
+                Console.ReadKey();
+                return;
             }
 
-            MainForm mainForm = new MainForm
-            {
-                Visible = true
-            };
-            Application.Run(mainForm);
+            AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
         }
-    }
+
+        private static bool CheckDllsExist()
+        {
+            string[] requiredDlls = { "DiscordRPC.dll", "Newtonsoft.Json.dll" };
+            foreach (string dll in requiredDlls)
+            {
+                if (!File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, dll)))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        {
+            var assemblyName = new AssemblyName(args.Name).Name;
+
+            var assemblyFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, $"{assemblyName}.dll");
+            if (File.Exists(assemblyFile))
+            {
+                try
+                {
+                    return Assembly.LoadFrom(assemblyFile);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error loading assembly '{assemblyName}.dll': {ex.Message}");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Assembly '{assemblyName}.dll' not found in directory '{AppDomain.CurrentDomain.BaseDirectory}'.");
+            }; return null;
+        }
+
+        private static void ShowConsoleWindow()
+        {
+            AllocConsole();
+        }
+
+        [DllImport("kernel32.dll", SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static extern bool AllocConsole();
+    };
 
     public class MainForm : Form
     {
+        private TabControl tabControl;
+        private HomeTab homeTab;
+        private AboutTab aboutTab;
+        private readonly DiscordRpcClient discordRpcClient;
+
         public MainForm()
         {
-            Text = "defowler2005's App";
-            Icon = new Icon("../../favicon.ico");
-            AutoSize = true;
-            this.WindowState = FormWindowState.Maximized;
-            Label label = new Label
+            InitializeComponent();
+            discordRpcClient = new DiscordRpcClient("1173922649211154453")
             {
-                Text = "Welcome to defowler2005's App!",
-                AutoSize = true,
-                Location = new System.Drawing.Point(50, 50)
+                Logger = new ConsoleLogger() { Level = LogLevel.Warning }
             };
-            Controls.Add(label);
+            discordRpcClient.Initialize();
+            BackColor = Color.White;
+            ForeColor = Color.FromArgb(64, 64, 64);
+            tabControl.Appearance = TabAppearance.FlatButtons;
+            tabControl.ItemSize = new Size(120, 40);
+            tabControl.SizeMode = TabSizeMode.Fixed;
+            tabControl.TabStop = false;
+
+            foreach (TabPage tabPage in tabControl.TabPages)
+            {
+                tabPage.BackColor = BackColor;
+            }; UpdateRpc("Home");
+        }
+
+        private void InitializeComponent()
+        {
+            tabControl = new TabControl();
+            homeTab = new HomeTab();
+            aboutTab = new AboutTab();
+            homeTab.Text = "Home";
+            aboutTab.Text = "About";
+            tabControl.TabPages.Add(homeTab);
+            tabControl.TabPages.Add(aboutTab);
+            tabControl.Dock = DockStyle.Fill;
+            tabControl.SelectedIndexChanged += UpdateRpcTab;
+            Controls.Add(tabControl);
+
+            Text = "defowler2005's windows app.";
+            var iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "./favicon.ico");
+            if (File.Exists(iconPath))
+            {
+                Icon = new Icon(iconPath);
+            }
+            else
+            {
+                MessageBox.Show("The icon file './favicon.ico' is missing. The application will continue without it.", "Icon Missing", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            WindowState = FormWindowState.Maximized;
+        }
+
+        private void UpdateRpc(string tabName)
+        {
+            var presence = new RichPresence
+            {
+                Details = $"Viewing {tabName} tab",
+                Timestamps = new Timestamps(DateTime.UtcNow),
+                Assets = new Assets
+                {
+                    LargeImageKey = "https://defowler.tech/favicon.png",
+                    LargeImageText = "defowler2005's windows app."
+                }
+            }; discordRpcClient.SetPresence(presence);
+        }
+
+        private void UpdateRpcTab(object sender, EventArgs e)
+        {
+            UpdateRpc(tabControl.SelectedTab.Text);
         }
     }
 };
