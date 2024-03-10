@@ -2,7 +2,7 @@
 using System.Resources;
 using System.Runtime.InteropServices;
 
-[assembly: ComVisible(false)] // Exposes the types in this assembly to COM components.
+[assembly: ComVisible(true)] // Exposes the types in this assembly to COM components.
 
 [assembly: Guid("00749d06-743b-4fcd-a3e3-36c5db9af897")] // Specifies the GUID associated with the assembly.
 
@@ -16,9 +16,9 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyTrademark("You are free to decompile this application")] // Specifies any trademarks associated with the assembly.
 
-[assembly: AssemblyVersion("1.0.0.0")] // Specifies the version of the assembly being attributed.
+[assembly: AssemblyVersion("0.0.0.0")] // Specifies the version of the assembly being attributed.
 
-[assembly: AssemblyFileVersion("0.0.0.1")] // Specifies the Win32 file version resource.
+[assembly: AssemblyFileVersion("0.0.0.0")] // Specifies the Win32 file version resource.
 
 [assembly: AssemblyTitle("defowler-win-app")] // Specifies the title of the assembly.
 
@@ -32,4 +32,4 @@ using System.Runtime.InteropServices;
 
 [assembly: AssemblyDelaySign(false)] // Specifies whether the assembly is to be delay-signed.
 
-[assembly: NeutralResourcesLanguage("")] // Specifies the culture for the resources in the assembly.
+[assembly: NeutralResourcesLanguage("en-AU")] // Specifies the culture for the resources in the assembly.

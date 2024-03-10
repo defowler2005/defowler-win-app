@@ -7,3 +7,5 @@ C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.c
 C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.csproj.CoreCompileInputs.cache
 C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.exe
 C:\Users\defowler2005\source\repos\defowler-win-app\obj\Debug\defowler-win-app.pdb
+C:\Users\defowler2005\source\repos\defowler-win-app\bin\Debug\defowler-win-app.exe.CodeAnalysisLog.xml
+C:\Users\defowler2005\source\repos\defowler-win-app\bin\Debug\defowler-win-app.exe.lastcodeanalysissucceeded
