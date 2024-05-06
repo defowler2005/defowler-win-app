@@ -16,7 +16,7 @@ namespace defowler_app
         {
             if (!CheckDllsExist())
             {
-                ShowConsoleWindow();
+                AllocConsole();
                 Console.WriteLine("One or more required DLL files are missing:");
                 Console.WriteLine("  - DiscordRPC.dll: https://www.dll-files.com/discord-rpc.dll.html");
                 Console.WriteLine("  - Newtonsoft.Json.dll: https://www.dll-files.com/newtonsoft.json.dll.html");
@@ -25,11 +25,20 @@ namespace defowler_app
                 Console.ReadKey();
                 return;
             }
-
+            if (args.Length > 0)
+            {
+                handleArgs(args);
+                return;
+            }
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
+        }
+
+        private static void handleArgs(string[] args)
+        {
+
         }
 
         private static bool CheckDllsExist()
@@ -65,11 +74,6 @@ namespace defowler_app
             {
                 Console.WriteLine($"Assembly '{assemblyName}.dll' not found in directory '{AppDomain.CurrentDomain.BaseDirectory}'.");
             }; return null;
-        }
-
-        private static void ShowConsoleWindow()
-        {
-            AllocConsole();
         }
 
         [DllImport("kernel32.dll", SetLastError = true)]
