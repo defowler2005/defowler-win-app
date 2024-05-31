@@ -27,7 +27,7 @@ namespace defowler_app
             }
             if (args.Length > 0)
             {
-                handleArgs(args);
+                HandleArgs(args);
                 return;
             }
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
@@ -36,10 +36,8 @@ namespace defowler_app
             Application.Run(new MainForm());
         }
 
-        private static void handleArgs(string[] args)
-        {
-
-        }
+        private static void HandleArgs(string[] args)
+        { }
 
         private static bool CheckDllsExist()
         {
@@ -85,6 +83,7 @@ namespace defowler_app
     {
         private TabControl tabControl;
         private HomeTab homeTab;
+        private OptimizerTab optimizerTab;
         private AboutTab aboutTab;
         private readonly DiscordRpcClient discordRpcClient;
 
@@ -113,10 +112,13 @@ namespace defowler_app
         {
             tabControl = new TabControl();
             homeTab = new HomeTab();
+            optimizerTab = new OptimizerTab();
             aboutTab = new AboutTab();
             homeTab.Text = "Home";
+            optimizerTab.Text = "Optimizer";
             aboutTab.Text = "About";
             tabControl.TabPages.Add(homeTab);
+            tabControl.TabPages.Add(optimizerTab);
             tabControl.TabPages.Add(aboutTab);
             tabControl.Dock = DockStyle.Fill;
             tabControl.SelectedIndexChanged += UpdateRpcTab;

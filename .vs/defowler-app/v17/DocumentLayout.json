@@ -1,10 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "A:\\source\\repos\\defowler-win-app\\",
+  "WorkspaceRootPath": "D:\\source\\repos\\defowler-win-app\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{867E377A-4992-49BA-BE96-494750612D6F}|defowler-app.csproj|a:\\source\\repos\\defowler-win-app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{867E377A-4992-49BA-BE96-494750612D6F}|defowler-app.csproj|d:\\source\\repos\\defowler-win-app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{867E377A-4992-49BA-BE96-494750612D6F}|defowler-app.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{867E377A-4992-49BA-BE96-494750612D6F}|defowler-app.csproj|D:\\source\\repos\\defowler-win-app\\optimizertab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{867E377A-4992-49BA-BE96-494750612D6F}|defowler-app.csproj|solutionrelative:optimizertab.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -20,14 +24,26 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "A:\\source\\repos\\defowler-win-app\\Program.cs",
+              "DocumentMoniker": "D:\\source\\repos\\defowler-win-app\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "A:\\source\\repos\\defowler-win-app\\Program.cs",
+              "ToolTip": "D:\\source\\repos\\defowler-win-app\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAgwCIAAABBAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-06T00:47:55.161Z",
+              "WhenOpened": "2024-05-31T02:53:10.022Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OptimizerTab.cs",
+              "DocumentMoniker": "D:\\source\\repos\\defowler-win-app\\OptimizerTab.cs",
+              "RelativeDocumentMoniker": "OptimizerTab.cs",
+              "ToolTip": "D:\\source\\repos\\defowler-win-app\\OptimizerTab.cs",
+              "RelativeToolTip": "OptimizerTab.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-31T02:52:31.792Z"
             }
           ]
         }
