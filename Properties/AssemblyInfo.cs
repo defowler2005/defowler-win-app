@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("defowler2005's beginer app.")]
-[assembly: AssemblyDescription("defowler2005's beginer app.")]
+[assembly: AssemblyTitle("defowler2005's app")]
+[assembly: AssemblyDescription("defowler2005's app")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("defowler2005, farmhouse_gold6432")]
-[assembly: AssemblyProduct("defowler2005's beginer app.")]
-[assembly: AssemblyCopyright("Copyright © 2024 defowler2005, farmhouse_gold6432")]
+[assembly: AssemblyCompany("defowler2005")]
+[assembly: AssemblyProduct("defowler2005's app")]
+[assembly: AssemblyCopyright("Copyright © 2024 defowler2005")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -30,5 +30,5 @@ using System.Runtime.InteropServices;
 //      Revision
 //
 [assembly: AssemblyVersion("0.0.0.0")]
-[assembly: AssemblyFileVersion("0.0.0.0")]
+[assembly: AssemblyFileVersion("0.0.0.1")]
 [assembly: NeutralResourcesLanguage("en-AU")]

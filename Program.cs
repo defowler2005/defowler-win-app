@@ -14,6 +14,12 @@ namespace defowler_app
         [STAThread]
         public static void Main(string[] args)
         {
+            if (args.Length > 0)
+            {
+                HandleArgs(args);
+                return;
+            }
+
             if (!CheckDllsExist())
             {
                 AllocConsole();
@@ -23,11 +29,6 @@ namespace defowler_app
                 Console.WriteLine("Please download the missing DLL files and place them in the same directory as the application.");
                 Console.WriteLine("Press any key to exit.");
                 Console.ReadKey();
-                return;
-            }
-            if (args.Length > 0)
-            {
-                HandleArgs(args);
                 return;
             }
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve;
@@ -71,13 +72,14 @@ namespace defowler_app
             else
             {
                 Console.WriteLine($"Assembly '{assemblyName}.dll' not found in directory '{AppDomain.CurrentDomain.BaseDirectory}'.");
-            }; return null;
+            }
+            return null;
         }
 
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool AllocConsole();
-    };
+    }
 
     public class MainForm : Form
     {
@@ -86,10 +88,12 @@ namespace defowler_app
         private OptimizerTab optimizerTab;
         private AboutTab aboutTab;
         private readonly DiscordRpcClient discordRpcClient;
+        private DateTime startTime;
 
         public MainForm()
         {
             InitializeComponent();
+            startTime = DateTime.UtcNow; // Store the initial timestamp
             discordRpcClient = new DiscordRpcClient("1173922649211154453")
             {
                 Logger = new ConsoleLogger() { Level = LogLevel.Warning }
@@ -105,7 +109,8 @@ namespace defowler_app
             foreach (TabPage tabPage in tabControl.TabPages)
             {
                 tabPage.BackColor = BackColor;
-            }; UpdateRpc("Home");
+            }
+            UpdateRpc("Home");
         }
 
         private void InitializeComponent()
@@ -139,16 +144,18 @@ namespace defowler_app
 
         private void UpdateRpc(string tabName)
         {
+            var elapsedTime = DateTime.UtcNow - startTime;
             var presence = new RichPresence
             {
                 Details = $"Viewing {tabName} tab",
-                Timestamps = new Timestamps(DateTime.UtcNow),
+                Timestamps = new Timestamps(startTime.AddSeconds(elapsedTime.TotalSeconds)),
                 Assets = new Assets
                 {
                     LargeImageKey = "https://defowler.tech/favicon.png",
                     LargeImageText = "defowler2005's windows app."
                 }
-            }; discordRpcClient.SetPresence(presence);
+            };
+            discordRpcClient.SetPresence(presence);
         }
 
         private void UpdateRpcTab(object sender, EventArgs e)
