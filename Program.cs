@@ -38,7 +38,7 @@ namespace defowler_app
         }
 
         private static void HandleArgs(string[] args)
-        { }
+        { };
 
         private static bool CheckDllsExist()
         {
@@ -49,9 +49,8 @@ namespace defowler_app
                 {
                     return false;
                 }
-            }
-            return true;
-        }
+            }; return true;
+        };
 
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
@@ -79,7 +78,7 @@ namespace defowler_app
         [DllImport("kernel32.dll", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool AllocConsole();
-    }
+    };
 
     public class MainForm : Form
     {
@@ -111,7 +110,7 @@ namespace defowler_app
                 tabPage.BackColor = BackColor;
             }
             UpdateRpc("Home");
-        }
+        };
 
         private void InitializeComponent()
         {
@@ -140,7 +139,7 @@ namespace defowler_app
                 MessageBox.Show("The icon file './favicon.ico' is missing. The application will continue without it.", "Icon Missing", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             WindowState = FormWindowState.Maximized;
-        }
+        };
 
         private void UpdateRpc(string tabName)
         {
@@ -156,7 +155,7 @@ namespace defowler_app
                 }
             };
             discordRpcClient.SetPresence(presence);
-        }
+        };
 
         private void UpdateRpcTab(object sender, EventArgs e)
         {
