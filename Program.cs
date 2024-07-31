@@ -162,15 +162,14 @@ namespace defowler_app
             UpdateRpc(tabControl.SelectedTab.Text);
         }
 
-        public static bool IsFileAvailable(string fileName) {
-            string path = Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar;
-            if (!File.Exists(path + fileName)) {
-                MessageBox.Show("The following file could not be found: " + fileName +
-                    "\nPlease extract all files from the archive.", "Error",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            return true;
-        };
-    }
+public static bool fileExists(string fileName) {
+string path = Application.StartupPath + Path.DirectorySeparatorChar;
+if (!File.Exists(path + fileName)) {
+MessageBox.Show($"It seems like the file {fileName} could not be found.",
+"File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+return false;
+}
+return true;
+}
+}
 };
