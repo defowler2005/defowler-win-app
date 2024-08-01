@@ -37,20 +37,23 @@ namespace defowler_app
             Application.Run(new MainForm());
         }
 
-        private static void HandleArgs(string[] args)
-        { };
+        private static void HandleArgs(string[] args) { }
 
         private static bool CheckDllsExist()
         {
-            string[] requiredDlls = { "DiscordRPC.dll", "Newtonsoft.Json.dll" };
+            string[] requiredDlls = {
+                "DiscordRPC.dll",
+                "Newtonsoft.Json.dll"
+        };
             foreach (string dll in requiredDlls)
             {
                 if (!File.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, dll)))
                 {
                     return false;
                 }
-            }; return true;
-        };
+            };
+            return true;
+        }
 
         private static Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
         {
@@ -76,7 +79,9 @@ namespace defowler_app
         }
 
         [DllImport("kernel32.dll", SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
+        [
+          return: MarshalAs(UnmanagedType.Bool)
+        ]
         private static extern bool AllocConsole();
     };
 
@@ -92,10 +97,13 @@ namespace defowler_app
         public MainForm()
         {
             InitializeComponent();
-            startTime = DateTime.UtcNow; // Store the initial timestamp
+            startTime = DateTime.UtcNow;
             discordRpcClient = new DiscordRpcClient("1173922649211154453")
             {
-                Logger = new ConsoleLogger() { Level = LogLevel.Warning }
+                Logger = new ConsoleLogger()
+                {
+                    Level = LogLevel.Warning
+                }
             };
             discordRpcClient.Initialize();
             BackColor = Color.White;
@@ -110,7 +118,7 @@ namespace defowler_app
                 tabPage.BackColor = BackColor;
             }
             UpdateRpc("Home");
-        };
+        }
 
         private void InitializeComponent()
         {
@@ -139,7 +147,7 @@ namespace defowler_app
                 MessageBox.Show("The icon file './favicon.ico' is missing. The application will continue without it.", "Icon Missing", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             WindowState = FormWindowState.Maximized;
-        };
+        }
 
         private void UpdateRpc(string tabName)
         {
@@ -155,21 +163,22 @@ namespace defowler_app
                 }
             };
             discordRpcClient.SetPresence(presence);
-        };
+        }
 
         private void UpdateRpcTab(object sender, EventArgs e)
         {
             UpdateRpc(tabControl.SelectedTab.Text);
         }
 
-public static bool fileExists(string fileName) {
-string path = Application.StartupPath + Path.DirectorySeparatorChar;
-if (!File.Exists(path + fileName)) {
-MessageBox.Show($"It seems like the file {fileName} could not be found.",
-"File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-return false;
-}
-return true;
-}
-}
+        public static bool FileExists(string fileName)
+        {
+            string path = Application.StartupPath + Path.DirectorySeparatorChar;
+            if (!File.Exists(path + fileName))
+            {
+                MessageBox.Show($"It seems like the file {fileName} could not be found.",
+                  "File Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }; return true;
+        }
+    }
 };
