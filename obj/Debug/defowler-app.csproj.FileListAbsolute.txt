@@ -30,3 +30,19 @@ C:\Users\defowler2005\Source\Repos\defowler2005\defowler-win-app\bin\Debug\Disco
 C:\Users\defowler2005\Source\Repos\defowler2005\defowler-win-app\bin\Debug\DiscordRPC.xml
 C:\Users\defowler2005\Source\Repos\defowler2005\defowler-win-app\bin\Debug\Newtonsoft.Json.xml
 C:\Users\defowler2005\Source\Repos\defowler2005\defowler-win-app\obj\Debug\defowler.AD780C50.Up2Date
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\favicon.ico
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\defowler-app.exe.config
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\defowler-app.exe
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\defowler-app.pdb
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\DiscordRPC.dll
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\Newtonsoft.Json.dll
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\DiscordRPC.pdb
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\DiscordRPC.xml
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\bin\Debug\Newtonsoft.Json.xml
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\obj\Debug\defowler-app.csproj.AssemblyReference.cache
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\obj\Debug\defowler_app.Properties.Resources.resources
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\obj\Debug\defowler-app.csproj.GenerateResource.cache
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\obj\Debug\defowler-app.csproj.CoreCompileInputs.cache
+E:\Programming Related\Visual_Studio_Projects\defowler-win-app\obj\Debug\defowler.AD780C50.Up2Date
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\obj\Debug\defowler-app.exe
+e:\Programming Related\Visual_Studio_Projects\defowler-win-app\obj\Debug\defowler-app.pdb

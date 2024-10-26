@@ -92,7 +92,7 @@ namespace defowler_app
         private OptimizerTab optimizerTab;
         private AboutTab aboutTab;
         private readonly DiscordRpcClient discordRpcClient;
-        private DateTime startTime;
+        private readonly DateTime startTime;
 
         public MainForm()
         {
